@@ -9,7 +9,7 @@
     <responsive-child>
       <main class="interactive">
         <div class="title">Seeking asylum in Canada</div>
-        <div class="chatter">Here’s an example of a path some asylum seekers take through Washington state. Some say they use the U.S. as a steppingstone because it’s easier to get a visitor visa to this country than to Canada.</div>
+        <div class="chatter">Here’s an example of a path some asylum seekers take, using the U.S. and Washington state as a steppingstone to Canada.</div>
         
         <div class="interactive-container">
           <div class="sidebar" data-index="0">
@@ -25,8 +25,13 @@
           </div>
 
           <div class="map-container">
-            <leaflet-map fixed>
+            <leaflet-map >
               <tile-layer layer="cartoPositron"></tile-layer>
+              <map-options>
+                {
+                  "scrollWheelZoom": false
+                }
+              </map-options>
             </leaflet-map>
           </div>
         </div>
