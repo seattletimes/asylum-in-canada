@@ -9,20 +9,75 @@
     font-weight: bold;
     font-size: 30px;
     padding-bottom: 15px;
+
+    @media @mobile {
+      font-size: 25px;
+    }
   }
 
   .chatter {
     padding-bottom: 30px;
   }
+
+  .next-location {
+    font-size: 16px;
+
+    h3 {
+      text-transform: uppercase;
+      font-size: 17px;
+      color: @df-dark-gray;
+      margin: 0px;
+      padding-bottom: 10px;
+    }
+
+    p {
+      margin: 0px;
+    }
+  }
+
+  .sources {
+    font-size: 14px;
+    text-align: right;
+    padding-top: 10px;
+    color: @df-middle-gray;
+    font-style: italic;
+
+    @media @mobile {
+      text-align: left;
+      font-size: 13px;
+    }
+
+    a {
+      color: @df-blue;
+    }
+  }
 }
 
 .interactive-container{
   .display-flex();
+  .flex-wrap(wrap);
 
   .sidebar {
-    .flex(0 0 30%);
+    .flex(0 1 30%);
     padding: 0 15px 0 0;
+
+    @media @mobile {
+      .flex(0 0 100%);
+      .flex-wrap(wrap);
+    }
   }
+
+  .map-container {
+    .flex(0 1 70%);
+
+    @media @mobile {
+      .flex(1 0 100%);
+    }
+  }
+}
+
+.hidden {
+  display: none;
 }
 
 .map-container {
@@ -48,3 +103,22 @@
   background-color: @df-blue;
   border-radius: 100%;
 }
+
+button {
+    margin-top: 15px;
+    height: 30px;
+    font-size: 12px;
+    background: white;
+    border: 1px solid @df-light-gray;
+    border-radius: 4px;
+
+    @media @mobile {
+      width: 150px;
+      height: 30px;
+      margin-bottom: 10px;
+    }
+
+    &:hover, &:focus {
+      background: @df-light-gray;
+    }
+  }

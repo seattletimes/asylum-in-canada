@@ -9,15 +9,18 @@
     <responsive-child>
       <main class="interactive">
         <div class="title">Seeking asylum in Canada</div>
-        <div class="chatter">Asylum seekers say it’s easier to get a visitor visa to the U.S. than to Canada. Here’s an example of a path an asylum seeker might take.</div>
+        <!-- <div class="chatter"></div> -->
         
         <div class="interactive-container">
           <div class="sidebar">
             <div class="next-location">
-              <%= t.include("./partials/_locationErbil.html") %>
-              <div>
-                <button class="back">BACK</button><button class="next">NEXT</button>
-              </div>
+              Asylum seekers say it’s easier to get a visitor visa to the U.S. than to Canada. Here’s an example of a path an asylum seeker might take.
+            </div>
+
+            <div>
+              <button class="begin">BEGIN</button>
+              <button class="back">BACK</button>
+              <button class="next">NEXT</button>
             </div>
           </div>
 
@@ -27,6 +30,11 @@
             </leaflet-map>
           </div>
         </div>
+
+        <div class="sources">
+          Sources: <a href="https://issbc.org/welcomecentre/">Welcome Centre</a> and <a href="http://www.aci.aero/Data-Centre/Monthly-Traffic-Data/International-Passenger-Rankings/Year-to-date">Airports Council International</a>
+        </div>
+
       </main>
     </responsive-child>
 

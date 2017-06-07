@@ -7,6 +7,25 @@ require("component-leaflet-map");
 
 var $ = require("./lib/qsa");
 
+//templates
+var locationErbil = require("./_locationErbil.html");
+var locationNewYork = require("./_locationNewYork.html");
+var locationSeattle = require("./_locationSeattle.html");
+var locationBlaine = require("./_locationBlaine.html");
+var locationVancouver = require("./_locationVancouver.html");
+var introTemplate = require("./_intro.html");
+
+var pages = {
+  0 : locationErbil,
+  1 : locationNewYork,
+  2 : locationSeattle,
+  3 : locationBlaine,
+  4 : locationVancouver,
+  "first": introTemplate
+};
+
+// console.log(pages);
+
 var index = 0;
 
 var mapElement = $.one("leaflet-map");
@@ -25,6 +44,8 @@ window.markers.forEach(function(m, i) {
   marker.bindPopup(m.name);
 });
 
+console.log(markers); // markers array
+
 var gotoMarker = function() {
   map.flyTo(markers[index].marker.getLatLng());
 };
@@ -33,14 +54,63 @@ gotoMarker();
 
 
 //qsa for buttons
+var beginButton = $.one(".begin");
 var backButton = $.one(".back");
 var nextButton = $.one(".next");
 
+var sidebarContent = $.one(".next-location");
 
+backButton.classList.add("hidden");
+nextButton.classList.add("hidden");
+
+beginButton.addEventListener("click", function(e) {
+  gotoMarker(index);
+  sidebarContent.innerHTML = pages[index];
+  beginButton.classList.add("hidden");
+  backButton.classList.remove("hidden");
+  nextButton.classList.remove("hidden");
+});
+
+backButton.addEventListener("click", function(e) {
+  if (index > 0) {
+    index = index- 1;
+    gotoMarker(index);
+    sidebarContent.innerHTML = pages[index];
+  }
+
+  if (index < 5) {
+    nextButton.classList.remove("hidden");
+  }
+
+  if (index === 0) {
+    sidebarContent.innerHTML = pages["first"];
+    beginButton.classList.remove("hidden");
+    backButton.classList.add("hidden");
+    nextButton.classList.add("hidden");
+  }
+});
+
+nextButton.addEventListener("click", function(e) {
+  if (index < 4) {
+    index = index+ 1;
+    gotoMarker(index);
+    sidebarContent.innerHTML = pages[index];
+  }
+
+  if (index === 4) {
+    nextButton.classList.add("hidden");
+  }
+
+  // drawLine(markers[index], markers[index + 1]);
+});
+
+
+
+var prevCoords;
 
 
 //line
-var drawLine = function(location1, location2, region) {
+var drawLine = function(location1, location2) {
   var segments = 30;
 
   var pointList = [];
