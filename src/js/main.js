@@ -7,7 +7,7 @@ require("component-leaflet-map");
 
 var $ = require("./lib/qsa");
 
-var index = -1;
+var index = 0;
 
 var mapElement = $.one("leaflet-map");
 var map = mapElement.map;
@@ -22,7 +22,7 @@ window.markers.forEach(function(m, i) {
   m.marker = marker;
 
   marker.addTo(map);
-  marker.bindPopup(m.name);
+  // marker.bindPopup(m.place);
 });
 
 
@@ -30,7 +30,7 @@ var gotoMarker = function(i, zoom = 7) {
   map.flyTo(markers[i].marker.getLatLng(), zoom);
 };
 
-// gotoMarker(0, 3);
+gotoMarker(0, 3);
 
 //qsa for buttons
 var beginButton = $.one(".begin");
@@ -62,6 +62,6 @@ var onClickButton = function(e) {
 backButton.addEventListener("click", onClickButton);
 nextButton.addEventListener("click", onClickButton);
 
-var bounds = [[51.4594161, -129.9099509], [49.386911, 29.313132]];
-map.fitBounds(bounds);
+// var bounds = [[51.4594161, -129.9099509], [49.386911, 29.313132]];
+// map.fitBounds(bounds);
 
