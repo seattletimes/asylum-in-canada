@@ -12,13 +12,13 @@
         <!-- <div class="chatter"></div> -->
         
         <div class="interactive-container">
-          <div class="sidebar">
+          <div class="sidebar" data-index="0">
+            <h3 class="place"></h3>
             <div class="next-location">
-              Asylum seekers say it’s easier to get a visitor visa to the U.S. than to Canada. Here’s an example of a path an asylum seeker might take.
+              Here’s an example of a path an asylum seeker might take through Washington state. Some say they use the U.S. as a stepping stone because it’s easier to get a visitor visa to this country than to Canada.
             </div>
 
-            <div>
-              <button class="begin">BEGIN</button>
+            <div class="buttons">
               <button class="back">BACK</button>
               <button class="next">NEXT</button>
             </div>
@@ -33,12 +33,11 @@
 
         <div class="sources">
           Sources: <a href="https://issbc.org/welcomecentre/">Welcome Centre</a> and <a href="http://www.aci.aero/Data-Centre/Monthly-Traffic-Data/International-Passenger-Rankings/Year-to-date">Airports Council International</a>
+          <div class="credit">VANESSA MARTINEZ / THE SEATTLE TIMES</div>
         </div>
 
       </main>
     </responsive-child>
-
-<!--     <% console.log(csv.markers) %> -->
 
     <script>
       window.markers = <%= JSON.stringify(csv.markers) %>;

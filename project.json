@@ -2,11 +2,11 @@
   "s3": {
     "stage": {
       "bucket": "projects-staging.seattletimes.com",
-      "path": ""
+      "path": "imitative-ruffle"
     },
     "live": {
       "bucket": "projects.seattletimes.com",
-      "path": ""
+      "path": "2017/local/seeking-asylum-in-canada"
     }
   },
   "title": "",
@@ -16,5 +16,5 @@
   "sheets": [],
   "standout": false,
   "embedded": true,
-  "production": false
+  "production": true
 }
