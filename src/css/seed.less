@@ -1,0 +1,50 @@
+@import "seattletimes";
+
+.interactive {
+  max-width: 960px;
+  margin: auto;
+
+  .title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 30px;
+    padding-bottom: 15px;
+  }
+
+  .chatter {
+    padding-bottom: 30px;
+  }
+}
+
+.interactive-container{
+  .display-flex();
+
+  .sidebar {
+    .flex(0 0 30%);
+    padding: 0 15px 0 0;
+  }
+}
+
+.map-container {
+  width: 100%;
+  position: relative;
+
+  &::before {
+    content: "";
+    display: block;
+    padding-bottom: percentage(9 / 16);
+  }
+
+  leaflet-map {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.locationMarker {
+  background-color: @df-blue;
+  border-radius: 100%;
+}

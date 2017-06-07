@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <%= t.include("partials/_head.html", grunt.data.json) %>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+
+    <responsive-child>
+      <main class="interactive">
+        <div class="title">Seeking asylum in Canada</div>
+        <div class="chatter">Asylum seekers say it’s easier to get a visitor visa to the U.S. than to Canada. Here’s an example of a path an asylum seeker might take.</div>
+        
+        <div class="interactive-container">
+          <div class="sidebar">
+            <div class="next-location">
+              <%= t.include("./partials/_locationErbil.html") %>
+              <div>
+                <button class="back">BACK</button><button class="next">NEXT</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="map-container">
+            <leaflet-map>
+              <tile-layer layer="cartoPositron"></tile-layer>
+            </leaflet-map>
+          </div>
+        </div>
+      </main>
+    </responsive-child>
+
+<!--     <% console.log(csv.markers) %> -->
+
+    <script>
+      window.markers = <%= JSON.stringify(csv.markers) %>;
+    </script>
+
+    <script src="app.js" async></script>
+    <% if (json.project.production) { %>
+    <%= !json.project.embedded ? t.include("partials/_foot.html") : "" %>
+    <%= t.include("partials/_workHere.html") %>
+    <% } %>
+  </body>
+</html>
